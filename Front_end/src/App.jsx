@@ -16,7 +16,7 @@ const App = () => {
       </>}
 
       <div className='app'>
-        <Router>   
+        <Router>
           <Navbar setShowLogin={setShowLogin} />
           <Routes>
             <Route path='/' element={<Home />} />
