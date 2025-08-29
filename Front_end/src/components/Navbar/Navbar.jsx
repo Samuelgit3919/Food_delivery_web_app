@@ -1,46 +1,50 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import { assets } from '../../assets/frontend_assets/assets'
 import './navbar.css'
 
 const Navbar = () => {
+    const [menu, setMenu] = useState("menu")
     return (
         <div className='navbar'>
             <img src={assets.logo} alt="" className='logo' />
 
             <ul className='navbar-menu'>
-                <li>
-                    <NavLink
-                        to="/"
-                        className={({ isActive }) => isActive ? "active" : ""}
-                    >
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to="/menu"
-                        className={({ isActive }) => isActive ? "active" : ""}
-                    >
-                        Menu
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to="/mobile-app"
-                        className={({ isActive }) => isActive ? "active" : ""}
-                    >
-                        Mobile-app
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to="/contact-us"
-                        className={({ isActive }) => isActive ? "active" : ""}
-                    >
-                        Contact us
-                    </NavLink>
-                </li>
+                <Link
+                    onClick={() => setMenu("home")}
+                    to="/"
+                    className={menu === 'home' ? "active" : ""}
+                >
+                    Home
+
+                </Link>
+
+                <a
+                    onClick={() => setMenu("menu")}
+                    href="#explore-menu"
+                    className={menu === 'menu' ? "active" : ""}
+                >
+                    Menu
+                </a>
+
+
+                <a
+                    onClick={() => setMenu("mobile-app")}
+                    href="#app-download"
+                    className={menu === 'mobile-app' ? "active" : ""}
+                >
+                    Mobile-app
+                </a>
+
+
+                <a
+                    onClick={() => setMenu("contact-us")}
+                    href="#footer"
+                    className={menu === 'contact-us' ? "active" : ""}
+                >
+                    Contact us
+                </a>
+
             </ul>
 
             <div className="navbar-right">
